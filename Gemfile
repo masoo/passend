@@ -43,3 +43,11 @@ gem 'devise-better_routes'
 gem 'pundit'
 
 gem 'rspec-rails', group: [:development, :test]
+
+group :development do
+	gem 'pry-rails'
+	gem 'pry-doc'
+	gem 'pry-stack_explorer'
+	gem 'pry-byebug'
+	gem 'rb-readline'
+end

@@ -40,5 +40,6 @@ gem 'spring',        group: :development
 
 gem 'devise'
 gem 'devise-better_routes'
+gem 'pundit'
 
 gem 'rspec-rails', group: [:development, :test]

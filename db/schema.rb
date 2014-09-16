@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140916060947) do
+ActiveRecord::Schema.define(version: 20140916075602) do
+
+  create_table "destinations", force: true do |t|
+    t.text     "email"
+    t.integer  "message_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "destinations", ["message_id"], name: "index_destinations_on_message_id"
 
   create_table "messages", force: true do |t|
     t.text     "body"

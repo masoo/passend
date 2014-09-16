@@ -43,6 +43,9 @@ GEM
       railties (>= 3.2.6, < 5)
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    devise-better_routes (0.0.4)
+      devise (>= 3.0.0.rc)
+      rails (>= 4.0.0.rc1)
     erubis (2.7.0)
     execjs (2.2.1)
     hike (1.2.3)
@@ -120,6 +123,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
+  devise-better_routes
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.1.6)

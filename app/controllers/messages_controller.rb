@@ -1,4 +1,4 @@
-class MessagesController < ApplicationController
+﻿class MessagesController < ApplicationController
 
   def index
     @policy = MessagePolicy.new(current_user, nil)
@@ -74,8 +74,16 @@ class MessagesController < ApplicationController
     return render :file => "public/401.html", :layout => false, :status => :unauthorized unless @policy.destroy?
 
     @message = message
-    @message.destroy
-    redirect_to messages_url, notice: 'Message was successfully destroyed.'
+    begin
+      Message.transaction {
+        @message.destination.delete_all!
+        @message.destroy
+      }
+      redirect_to messages_url, notice: 'Message was successfully destroyed.'
+    rescue => error
+        flash[:alert] = error.message
+        redirect_to messages_url
+    end
   end
 
   private

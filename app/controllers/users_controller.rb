@@ -1,2 +1,3 @@
-class UsersController < Devise::RegistrationsController
+﻿class UsersController < Devise::RegistrationsController
+  layout 'top'
 end

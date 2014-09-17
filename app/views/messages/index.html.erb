@@ -1,29 +1,96 @@
-<h1>Listing messages</h1>
+﻿<div class="container-fluid">
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://www.jquery2dotnet.com">Passend</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <%= link_to messages_path do %>
+            <span class="glyphicon glyphicon-list-alt"></span> Message
+          <% end %>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="glyphicon glyphicon-user"></span> <%= current_user.email %>
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <%= link_to edit_current_user_path do %>
+              <span class="glyphicon glyphicon-cog"></span> Settings
+              <% end %>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <%= link_to current_user_session_path, :method => :delete do %>
+              <span class="glyphicon glyphicon-off"></span> Sign out
+              <% end %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  <!-- /.navbar-collapse -->
+  </nav>
 
-<table>
-  <thead>
-    <tr>
-      <th>Body</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
 
-  <tbody>
-    <% @messages.each do |message| %>
-      <tr>
-        <td><%= message.body %></td>
-        <td><%= message.user %></td>
-        <td><%= link_to 'Show', message %></td>
-        <td><%= link_to 'Edit', edit_message_path(message) %></td>
-        <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <%= link_to new_message_path, class: "btn btn-primary" do %>
+        <span class="glyphicon glyphicon-plus"></span> New Message
+      <% end %>
+      <br>
+      <br>
 
-<br>
+      <table class="table table-bordered table-responsive">
+        <colgroup>
+          <col class="col-md-7">
+          <col class="col-md-1">
+          <col class="col-md-1">
+          <col class="col-md-1">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Body</th>
+            <th>Show</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
 
-<%= link_to 'New Message', new_message_path %>
+        <tbody>
+          <% @messages.each do |message| %>
+            <tr>
+              <td><%= message.body %></td>
+              <td>
+                <%= link_to message_path(message.id) do %>
+                  <span class="glyphicon glyphicon-file"></span>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to edit_message_path(message) do %>
+                  <span class="glyphicon glyphicon-pencil"></span>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to message_path(message.id), method: :delete, data: { confirm: 'Are you sure?' }  do %>
+                  <span class="glyphicon glyphicon-trash"></span>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
 
-<%= link_to "Sign out", current_user_session_path, :method => :delete %>
+    </div>
+  </div>
+</div>

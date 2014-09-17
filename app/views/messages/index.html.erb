@@ -7,6 +7,7 @@
     <br>
     <br>
 
+    <% if @messages.present? %>
     <table class="table table-bordered table-responsive">
       <colgroup>
         <col class="col-md-7">
@@ -16,7 +17,7 @@
       </colgroup>
       <thead>
         <tr>
-          <th>Body</th>
+          <th>Message</th>
           <th>Show</th>
           <th>Edit</th>
           <th>Delete</th>
@@ -46,6 +47,9 @@
         <% end %>
       </tbody>
     </table>
+    <% else %>
+    <div class="alert alert-info" role="alert">There are no data. Please press the "<span class="glyphicon glyphicon-plus"></span> New Message"</div>
+    <% end %>
 
   </div>
 </div>

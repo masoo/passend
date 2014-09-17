@@ -27,7 +27,12 @@
       <ul class="nav navbar-nav">
         <li class="active">
           <%= link_to messages_path do %>
-            <span class="glyphicon glyphicon-list-alt"></span> Message
+            <span class="glyphicon glyphicon-inbox"></span> Inbox
+          <% end %>
+        </li>
+        <li>
+          <%= link_to messages_path do %>
+            <span class="glyphicon glyphicon-upload"></span> Sended
           <% end %>
         </li>
       </ul>

@@ -1,74 +1,89 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:show, :edit, :update, :destroy]
 
-  # GET /messages
-  # GET /messages.json
   def index
-    @messages = Message.all
+    @policy = MessagePolicy.new(current_user, nil)
+    return render :file => "public/401.html", :layout => false, :status => :unauthorized unless @policy.index?
+
+    @messages = MessagePolicy::Scope.new(current_user, Message).resolve
   end
 
-  # GET /messages/1
-  # GET /messages/1.json
   def show
+    messages = MessagePolicy::Scope.new(current_user, Message).resolve
+    message = messages.where(id: params[:id]).last
+    @policy = MessagePolicy.new(current_user, message)
+    return render :file => "public/401.html", :layout => false, :status => :unauthorized unless @policy.show?
+
+    @message = message
   end
 
-  # GET /messages/new
   def new
+    @policy = MessagePolicy.new(current_user, nil)
+    return render :file => "public/401.html", :layout => false, :status => :unauthorized unless @policy.new?
+
     @message = Message.new
   end
 
-  # GET /messages/1/edit
   def edit
+    messages = MessagePolicy::Scope.new(current_user, Message).resolve
+    message = messages.where(id: params[:id]).last
+    @policy = MessagePolicy.new(current_user, message)
+    return render :file => "public/401.html", :layout => false, :status => :unauthorized unless @policy.edit?
+
+    @message = message
   end
 
-  # POST /messages
-  # POST /messages.json
   def create
+    @policy = MessagePolicy.new(current_user, nil)
+    return render :file => "public/401.html", :layout => false, :status => :unauthorized unless @policy.create?
+
     @message = Message.new(message_params)
+    @emails = emails_params[:emails].split(",").map {|email| email.strip }
 
-    respond_to do |format|
-      if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
-        format.json { render :show, status: :created, location: @message }
-      else
-        format.html { render :new }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
+    begin
+      Message.transaction {
+        @message.save!
+        @emails.each do |mail|
+          Destination.create(email: mail, message_id: @message.id)
+        end
+      }
+    rescue => error
+        flash[:alert] = error.message
+        render :new
     end
+    redirect_to @message, notice: 'Message was successfully created.'
   end
 
-  # PATCH/PUT /messages/1
-  # PATCH/PUT /messages/1.json
   def update
-    respond_to do |format|
-      if @message.update(message_params)
-        format.html { redirect_to @message, notice: 'Message was successfully updated.' }
-        format.json { render :show, status: :ok, location: @message }
-      else
-        format.html { render :edit }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
+    messages = MessagePolicy::Scope.new(current_user, Message).resolve
+    message = messages.where(id: params[:id]).last
+    @policy = MessagePolicy.new(current_user, message)
+    return render :file => "public/401.html", :layout => false, :status => :unauthorized unless @policy.index?
+
+    @message = message
+    if @message.update(message_params)
+      redirect_to @message, notice: 'Message was successfully updated.'
+    else
+      render :edit
     end
   end
 
-  # DELETE /messages/1
-  # DELETE /messages/1.json
   def destroy
+    messages = MessagePolicy::Scope.new(current_user, Message).resolve
+    message = messages.where(id: params[:id]).last
+    @policy = MessagePolicy.new(current_user, message)
+    return render :file => "public/401.html", :layout => false, :status => :unauthorized unless @policy.destroy?
+
+    @message = message
     @message.destroy
-    respond_to do |format|
-      format.html { redirect_to messages_url, notice: 'Message was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to messages_url, notice: 'Message was successfully destroyed.'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_message
-      @message = Message.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
       params.require(:message).permit(:body, :user_id)
+    end
+
+    def emails_params
+      params.require(:message).permit(:emails)
     end
 end

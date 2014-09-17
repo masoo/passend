@@ -1,5 +1,12 @@
-﻿<h1>Passend</h1>
-
-<p><%= link_to "Sign up", new_user_path %></p>
-
-<p><%= link_to "Log in", new_current_user_session_path %></p>
+﻿<div class="container-full">
+  <div class="jumbotron text-center">
+    <h1>Passend</h1>
+    <p class="lead">Password received System.</p>
+    <p>
+      <%= link_to "Log in", new_current_user_session_path, class: "btn btn-lg btn-primary" %>
+    </p>
+    <p>
+      <%= link_to "Sign up", new_user_path, class: "btn btn-lg btn-success" %>
+    </p>
+  </div>
+</div>

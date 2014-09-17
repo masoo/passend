@@ -7,7 +7,7 @@
   <title>Passend</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+  <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/cosmo/bootstrap.min.css' %>
   <%= javascript_include_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
   <%= csrf_meta_tags %>
 </head>
@@ -54,6 +54,21 @@
       </ul>
     </div>
   </nav>
+
+  <% if notice.present? or alert.present? %>
+  <div class="row">
+    <% if notice.present? %>
+    <div class="col-md-10 col-md-offset-1">
+      <div class="alert alert-info"><p><%= notice %></p></div>
+    </div>
+    <% end %>
+    <% if alert.present? %>
+    <div class="col-md-10 col-md-offset-1">
+      <div class="alert alert-danger"><p><%= alert %></p></div>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
 
 <%= yield %>
 

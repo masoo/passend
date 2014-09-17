@@ -43,7 +43,7 @@
       Message.transaction {
         @message.save!
         @emails.each do |mail|
-          Destination.create(email: mail, message_id: @message.id)
+          Destination.create(email: mail, message_id: @message.id, user_id: current_user.id)
         end
       }
     rescue => error
@@ -76,22 +76,25 @@
     @message = message
     begin
       Message.transaction {
-        @message.destination.delete_all!
-        @message.destroy
+        @message.destinations.each do |destination|
+          destination.destroy!
+        end
+        @message.destroy!
       }
       redirect_to messages_url, notice: 'Message was successfully destroyed.'
     rescue => error
-        flash[:alert] = error.message
-        redirect_to messages_url
+      flash[:alert] = error.message
+      redirect_to messages_url
     end
   end
 
   private
-    def message_params
-      params.require(:message).permit(:body, :user_id)
-    end
 
-    def emails_params
-      params.require(:message).permit(:emails)
-    end
+  def message_params
+    params.require(:message).permit(:body, :user_id)
+  end
+
+  def emails_params
+    params.require(:message).permit(:emails)
+  end
 end

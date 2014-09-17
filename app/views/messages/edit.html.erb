@@ -1,4 +1,4 @@
-<div class="row">
+﻿<div class="row">
   <div class="col-md-10 col-md-offset-1">
     <div class="panel panel-default">
       <div class="panel-heading">Edit</div>
@@ -29,7 +29,7 @@
             <br>
           </div>
         </div>
-        
+          
       <% end %>
 
     </div>
@@ -38,11 +38,15 @@
       <ul class="list-group">
         <li class="list-group-item list-group-item-info">Destinations</li>
         <% @message.destinations.each do |destination| %>
-          <li class="list-group-item"><%= destination.email %></li>
+          <li class="list-group-item">
+            <%= destination.email %> 
+            <%= link_to destination_path(destination.id), method: :delete, data: { confirm: 'Are you sure?' }  do %>
+              <span class="glyphicon glyphicon-trash"></span>
+            <% end %>
+          </li>
         <% end %>
       </ul>
     </div>
 
   </div>
 </div>
-

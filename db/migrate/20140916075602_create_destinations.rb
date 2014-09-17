@@ -3,6 +3,7 @@ class CreateDestinations < ActiveRecord::Migration
     create_table :destinations do |t|
       t.text :email
       t.references :message, index: true
+      t.references :user, index: true
 
       t.timestamps
     end

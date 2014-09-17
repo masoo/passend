@@ -16,11 +16,13 @@ ActiveRecord::Schema.define(version: 20140916075602) do
   create_table "destinations", force: true do |t|
     t.text     "email"
     t.integer  "message_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "destinations", ["message_id"], name: "index_destinations_on_message_id"
+  add_index "destinations", ["user_id"], name: "index_destinations_on_user_id"
 
   create_table "messages", force: true do |t|
     t.text     "body"

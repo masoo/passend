@@ -1,0 +1,38 @@
+﻿<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+
+    <% if @messages.present? %>
+    <table class="table table-bordered table-responsive">
+      <colgroup>
+        <col class="col-md-5">
+        <col class="col-md-4">
+        <col class="col-md-1">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Sender</th>
+          <th>Date</th>
+          <th>Show</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @messages.each do |message| %>
+          <tr>
+            <td><%= message.user.email %></td>
+            <td><%= message.updated_at %></td>
+            <td>
+              <%= link_to message_path(message.id) do %>
+                <span class="glyphicon glyphicon-file"></span>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <% else %>
+    <div class="alert alert-info" role="alert">There is nothing in the Inbox.</div>
+    <% end %>
+
+  </div>
+</div>

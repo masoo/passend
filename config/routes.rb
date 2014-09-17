@@ -4,6 +4,8 @@
   devise_for :users, controllers: {sessions: "sessions", passwords: "passwords", confirmations: "confirmations", unlocks: "unlocks"}
 
   resources :messages
+
+  resources :receptions, only: [:index, :show]
   
   resources :destinations, only: [:destroy]
   # The priority is based upon order of creation: first created -> highest priority.

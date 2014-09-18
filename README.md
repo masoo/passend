@@ -12,7 +12,7 @@ rake db:migrate
 ```
 
 ### License
-Code is under [The MIT license](LICENSE.md)
+Code is under [The MIT license](LICENSE)
 
 ### Donations
 [Donate](https://gum.co/mXcR)

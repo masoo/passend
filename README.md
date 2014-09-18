@@ -1,4 +1,4 @@
-﻿passend
+passend
 =======
 
 Password received System.
@@ -12,7 +12,7 @@ rake db:migrate
 ```
 
 ### License
-Code is under [The MIT license][LICENSE].
+Code is under [The MIT license](LICENSE.md)
 
 ### Donations
-<a href="https://gum.co/mXcR" class="gumroad-button">Donate</a><script type="text/javascript" src="https://gumroad.com/js/gumroad.js"></script>
+[Donate](https://gum.co/mXcR)

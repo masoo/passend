@@ -1,10 +1,14 @@
-source 'https://rubygems.org'
-
+﻿source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use sqlite3 and mysql2 as the database for Active Record
+group :development, :test do
+	gem 'sqlite3'
+end
+group :production do
+	gem 'mysql2'
+end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -21,7 +25,9 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0',          group: :doc
+group :doc do
+	gem 'sdoc', '~> 0.4.0'
+end
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
@@ -42,7 +48,9 @@ gem 'devise'
 gem 'devise-better_routes'
 gem 'pundit'
 
-gem 'rspec-rails', group: [:development, :test]
+group :development, :test do
+	gem 'rspec-rails'
+end
 
 group :development do
 	gem 'pry-rails'

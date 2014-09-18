@@ -74,6 +74,7 @@ GEM
     mime-types (2.3)
     minitest (5.4.1)
     multi_json (1.10.1)
+    mysql2 (0.3.16)
     orm_adapter (0.5.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -174,6 +175,7 @@ DEPENDENCIES
   devise-better_routes
   jbuilder (~> 2.0)
   jquery-rails
+  mysql2
   pry-byebug
   pry-doc
   pry-rails

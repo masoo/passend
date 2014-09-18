@@ -1,3 +1,3 @@
 ﻿class CurrentUsersController < Devise::RegistrationsController
-  layout 'top'
+  layout 'top', except: :edit
 end

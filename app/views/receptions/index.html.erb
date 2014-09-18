@@ -18,7 +18,7 @@
 
       <tbody>
         <% @messages.each do |message| %>
-          <tr>
+          <tr <% if already_read(message, @destinations) %>class="active"<% end %>>
             <td><%= message.user.email %></td>
             <td><%= message.updated_at %></td>
             <td>

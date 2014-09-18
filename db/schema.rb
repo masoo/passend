@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20140916075602) do
     t.text     "email"
     t.integer  "message_id"
     t.integer  "user_id"
+    t.boolean  "is_checked"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,4 +1,4 @@
-﻿class MessagePolicy
+class MessagePolicy
   attr_reader :user, :message
 
   def initialize(user, message)
@@ -11,7 +11,7 @@
   end
 
   def show?
-    message_owner?
+    message_owner? or message_recipient?
   end
 
   def new?
@@ -47,6 +47,10 @@
   ## authority
   def message_owner?
     user_signed_in? and message_present? and (@message.user.id == @user.id)
+  end
+
+  def message_recipient?
+    user_signed_in? and message_present? and @message.destinations.any? {|destination| destination.email == @user.email }
   end
 
 end

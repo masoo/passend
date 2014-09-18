@@ -8,12 +8,23 @@
   end
 
   def show
-    messages = MessagePolicy::Scope.new(current_user, Message).resolve
-    message = messages.where(id: params[:id]).last
+    message = Message.where(id: params[:id]).last
     @policy = MessagePolicy.new(current_user, message)
     return render :file => "public/401.html", :layout => false, :status => :unauthorized unless @policy.show?
 
     @message = message
+    if @policy.message_recipient?
+      begin
+        Destination.transaction {
+          destination = @message.destinations.where(email: current_user.email).last
+          destination.is_checked = true
+          destination.save!
+        }
+      rescue => error
+          flash[:alert] = error.message
+          redirect_to messages_url
+      end
+    end
   end
 
   def new

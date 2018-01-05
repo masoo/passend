@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/masoo/sorcery.git
+  revision: 38a934c85f92ab0a3994cc81b645aa7785503bb4
+  specs:
+    sorcery (0.11.0)
+      bcrypt (~> 3.1)
+      oauth (~> 0.4, >= 0.4.4)
+      oauth2 (~> 1.0, >= 0.8.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -41,6 +50,7 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
+    bcrypt (3.1.11)
     bindex (0.5.0)
     builder (3.2.3)
     byebug (9.1.0)
@@ -64,6 +74,8 @@ GEM
     crass (1.0.3)
     erubi (1.7.0)
     execjs (2.7.0)
+    faraday (0.12.2)
+      multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -72,6 +84,7 @@ GEM
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    jwt (1.5.6)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -86,9 +99,18 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.1)
     multi_json (1.12.2)
+    multi_xml (0.6.0)
+    multipart-post (2.0.0)
     nio4r (2.2.0)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
+    oauth (0.5.4)
+    oauth2 (1.4.0)
+      faraday (>= 0.8, < 0.13)
+      jwt (~> 1.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (>= 1.2, < 3)
     public_suffix (3.0.1)
     puma (3.11.0)
     rack (2.0.3)
@@ -190,6 +212,7 @@ DEPENDENCIES
   rails (~> 5.1.4)
   sass-rails (~> 5.0)
   selenium-webdriver
+  sorcery!
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3

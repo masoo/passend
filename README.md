@@ -1,24 +1,19 @@
-# README
+Passend
+=======
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Password transmission system.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+```shell
+$ cd passend
+$ bundle install
+$ rails db:migrate
+$ rails s
+```
 
-* System dependencies
+## License
+Code is under [The MIT license](LICENSE)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Donations
+[Donate](https://gum.co/mXcR)

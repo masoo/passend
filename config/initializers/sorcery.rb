@@ -389,6 +389,7 @@ Rails.application.config.sorcery.configure do |config|
     # Default: `nil`
     #
     # user.magic_login_mailer_class =
+    user.magic_login_mailer_class = AuthenticationMailer
 
 
     # magic login email method on your mailer class.
@@ -403,6 +404,7 @@ Rails.application.config.sorcery.configure do |config|
     # Default: `true`
     #
     # user.magic_login_mailer_disabled =
+    user.magic_login_mailer_disabled = false
 
 
     # how many seconds before the request expires. nil for never expires.

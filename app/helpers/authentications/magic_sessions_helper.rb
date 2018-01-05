@@ -1,0 +1,2 @@
+module Authentications::MagicSessionsHelper
+end

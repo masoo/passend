@@ -12,4 +12,8 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require jquery/dist/jquery.min
+//= require bootstrap/dist/js/bootstrap.min
+//= require admin-lte/dist/js/adminlte.min
+//= require admin-lte/plugins/iCheck/icheck.min
 //= require_tree .

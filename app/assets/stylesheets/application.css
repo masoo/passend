@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+@import 'bootstrap/dist/css/bootstrap.min';
+@import 'font-awesome/css/font-awesome.min';
+@import 'ionicons/dist/css/ionicons.min';
+@import 'admin-lte/dist/css/AdminLTE.min';
+@import 'admin-lte/dist/css/skins/skin-blue.min';
+@import 'admin-lte/plugins/iCheck/all.css';

@@ -1,0 +1,45 @@
+!!! 5
+%html
+  %head
+    %meta{charset: "utf8"}
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %title
+      Passend
+  %body.hold-transition.skin-blue.sidebar-mini
+    .wrapper
+      -# Main Header
+      %header.main-header
+        -# Logo
+        %a.logo{href: "#"}
+          %span.logo-mini
+            %b<>
+              P
+          %span.logo-lg
+            %b<>
+              P
+            assend
+        -# Header Navbar
+        %nav.navbar.navbar-static-top{role: "navigation"}
+          - # Sidebar toggle button
+          %a.sidebar-toggle{href: "#", data: {toggle: "push-menu"}}
+            %span.sr-only
+              Toggle navigation
+      -# Left side column. contains the logo and sidebar
+      %aside.main-sidebar
+        -# sidebar: style can be found in sidebar.less
+        %section.sidebar
+          -# Sidebar Menu
+          %ul.sidebar-menu{data: {widget: "tree"}}
+            %li.header
+              Main Navigation
+      .content-wrapper
+        = yield
+      %footer.main-footer
+        .pull-right.hidden-xs
+          passend
+        %strong<>
+          Copyright &copy; 2017 
+          %a{href: "https://github.com/masoo/passend"}
+            FUNABARA Masao

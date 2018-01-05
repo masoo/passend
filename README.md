@@ -1,18 +1,24 @@
-passend
-=======
+# README
 
-Password received System.
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-### Getting Started
+Things you may want to cover:
 
-```shell
-cd passend
-bundle install
-rake db:migrate
-```
+* Ruby version
 
-### License
-Code is under [The MIT license](LICENSE)
+* System dependencies
 
-### Donations
-[Donate](https://gum.co/mXcR)
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...

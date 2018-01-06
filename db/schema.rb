@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180105044050) do
+ActiveRecord::Schema.define(version: 20180106040916) do
 
   create_table "authentications", force: :cascade do |t|
     t.string "email", null: false
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 20180105044050) do
     t.datetime "magic_login_email_sent_at"
     t.index ["email"], name: "index_authentications_on_email", unique: true
     t.index ["magic_login_token"], name: "index_authentications_on_magic_login_token"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.text "name"
+    t.integer "authentication_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["authentication_id"], name: "index_users_on_authentication_id"
   end
 
 end

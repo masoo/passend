@@ -7,7 +7,10 @@ class AuthenticationsController < ApplicationController
   end
 
   def create
-    @authentication = Authentication.find_or_create_by(authentication_params)
+    ApplicationRecord.transaction do
+      @authentication = Authentication.find_or_create_by(authentication_params)
+      @authentication.create_user if @authentication.user.blank?
+    end
     @authentication.deliver_magic_login_instructions!
     render layout: false
   end

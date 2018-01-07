@@ -8,5 +8,11 @@
         Main Navigation
       %li
         =link_to messages_path do
-          %i.fa.fa-comment-o
-          message
+          %i.fa.fa-paper-plane-o
+          %span<>
+            message
+      %li
+        =link_to messages_acceptances_path do
+          %i.fa.fa-inbox
+          %span<>
+            acceptance

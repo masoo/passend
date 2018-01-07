@@ -1,0 +1,2 @@
+module Messages::AcceptancesHelper
+end

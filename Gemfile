@@ -61,3 +61,6 @@ gem 'hamlit-rails'
 
 # Authentication
 gem 'sorcery', github: 'masoo/sorcery'
+
+# Authorization
+gem "pundit"

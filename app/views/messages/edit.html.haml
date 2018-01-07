@@ -1,0 +1,9 @@
+%section.content-header
+  %h1 Messages#edit
+%section.content.container-fluid
+  .box
+    .box-header.with-border
+      %h3.box-title
+        Message
+    .box-body
+      = render "form", message: @message

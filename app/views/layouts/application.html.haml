@@ -43,14 +43,7 @@
                   %li.user-footer
                     .pull-right
                       = link_to "Log out", authentications_magic_session_path(id: current_user.id), method: :delete, class: "btn btn-default btn-flat"
-      -# Left side column. contains the logo and sidebar
-      %aside.main-sidebar
-        -# sidebar: style can be found in sidebar.less
-        %section.sidebar
-          -# Sidebar Menu
-          %ul.sidebar-menu{data: {widget: "tree"}}
-            %li.header
-              Main Navigation
+      = render partial: "shared/left_sidebar"
       .content-wrapper
         = yield
       %footer.main-footer

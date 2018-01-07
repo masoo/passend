@@ -1,0 +1,11 @@
+= form_for message do |f|
+  .box-body
+    .form-group
+      = f.label :body
+      = f.text_field :body, class: "form-control", placeholder: "body"
+    .form-group
+      = f.label :emails
+      = f.text_field :emails, class: "form-control", placeholder: "emails"
+      = f.hidden_field :uuid
+  .box-footer
+    = f.submit "submit", class: "btn btn-primary"

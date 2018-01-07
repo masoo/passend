@@ -17,3 +17,8 @@
 //= require admin-lte/dist/js/adminlte.min
 //= require admin-lte/plugins/iCheck/icheck.min
 //= require_tree .
+
+var ready = function () {
+  return $(window).trigger('resize');
+};
+document.addEventListener('turbolinks:load', ready);

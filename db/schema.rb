@@ -26,12 +26,14 @@ ActiveRecord::Schema.define(version: 20180107012836) do
   end
 
   create_table "messages", force: :cascade do |t|
+    t.text "uuid"
     t.text "body"
     t.text "emails"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_messages_on_user_id"
+    t.index ["uuid"], name: "index_messages_on_uuid", unique: true
   end
 
   create_table "users", force: :cascade do |t|

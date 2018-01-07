@@ -1,0 +1,30 @@
+%section.content-header
+  %h1 Messages#show
+%section.content.container-fluid
+  .box
+    .box-header.with-border
+      %h3.box-title
+        Message
+    .box-body
+      %dl.dl-horizontal
+        %dt id
+        %dd
+          = @message.id
+        %dt uuid
+        %dd
+          = @message.uuid
+        %dt body
+        %dd
+          = @message.body
+        %dt emails
+        %dd
+          = @message.emails
+        %dt user_id
+        %dd
+          = @message.user_id
+        %dt created_at
+        %dd
+          = @message.created_at
+        %dt updated_at
+        %dd
+          = @message.updated_at

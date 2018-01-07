@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180107012836) do
+ActiveRecord::Schema.define(version: 20180107102711) do
+
+  create_table "acceptances", force: :cascade do |t|
+    t.text "email"
+    t.integer "message_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["message_id"], name: "index_acceptances_on_message_id"
+  end
 
   create_table "authentications", force: :cascade do |t|
     t.string "email", null: false

@@ -15,11 +15,19 @@
     authentication = current_user
     message = authentication.user.messages.build(message_params)
     message.uuid = SecureRandom.uuid.delete('-')
-    if message.save
-      redirect_to message_path(uuid: message.uuid), notice: "Message was successfully created."
-    else
+    emails = message.emails.split(',').map {|email| email.strip }
+    begin
+      ApplicationRecord.transaction do
+        message.save!
+        emails.each do |email|
+          message.acceptances.create!(email: email)
+        end
+      end
+    rescue => exception
       render :new
+      return
     end
+    redirect_to message_path(uuid: message.uuid), notice: "Message was successfully created."
   end
 
   def edit

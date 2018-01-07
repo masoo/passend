@@ -1,5 +1,8 @@
 %section.content-header
-  %h1 Messages#Index
+  %h1<>
+    -# i18n-tasks-use t('activerecord.models.message')
+    = Message.model_name.human
+    = t("passend.resources.index")
 %section.content.container-fluid
   .row
     .col-md-12

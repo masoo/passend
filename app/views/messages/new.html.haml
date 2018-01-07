@@ -1,9 +1,13 @@
 %section.content-header
-  %h1 Messages#new
+  %h1<>
+    -# i18n-tasks-use t('activerecord.models.message')
+    = Message.model_name.human
+    = t("passend.resources.new")
 %section.content.container-fluid
   .box
     .box-header.with-border
       %h3.box-title
-        Message
+        -# i18n-tasks-use t('activerecord.models.message')
+        = Message.model_name.human
     .box-body
       = render "form", message: @message

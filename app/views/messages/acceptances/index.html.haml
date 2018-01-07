@@ -1,5 +1,8 @@
 %section.content-header
-  %h1 Acceptances#Index
+  %h1<>
+    -# i18n-tasks-use t('activerecord.models.acceptance')
+    = Acceptance.model_name.human
+    = t("passend.resources.index")
 %section.content.container-fluid
   .row
     .col-md-12

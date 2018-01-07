@@ -2,10 +2,10 @@
   .box-body
     .form-group
       = f.label :body
-      = f.text_field :body, class: "form-control", placeholder: "body"
+      = f.text_field :body, class: "form-control", placeholder: t('activerecord.attributes.message.body')
     .form-group
       = f.label :emails
-      = f.text_field :emails, class: "form-control", placeholder: "emails"
+      = f.text_field :emails, class: "form-control", placeholder: t('activerecord.attributes.message.emails')
       = f.hidden_field :uuid
   .box-footer
-    = f.submit "submit", class: "btn btn-primary"
+    = f.submit t("passend.actions.submit"), class: "btn btn-primary"

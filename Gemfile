@@ -64,3 +64,7 @@ gem 'sorcery', github: 'masoo/sorcery'
 
 # Authorization
 gem "pundit"
+
+# Internationalization
+gem 'rails-i18n', '~> 5.0.0'
+gem 'i18n-tasks', group: [:development]

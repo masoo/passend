@@ -1,0 +1,34 @@
+.box
+  .box-header.with-border
+    %h3.box-title
+      Acceptance
+  .box-body.table-responsive
+    %table.table.table-bordered
+      %thead
+        %tr
+          %th
+            uuid
+          %th
+            body
+          %th
+            emails
+          %th
+            created_at
+          %th
+            operation
+      %tbody
+        - acceptances.each do |acceptance|
+          - message = acceptance.message
+          %tr
+            %td
+              = message.uuid
+            %td
+              = message.body
+            %td
+              = message.emails
+            %td
+              = message.created_at
+            %td
+              = link_to message_path(uuid: message.uuid), class: "btn btn-default btn-xs" do
+                %i.fa.fa-file-o
+                show

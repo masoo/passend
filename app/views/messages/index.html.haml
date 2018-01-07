@@ -3,42 +3,4 @@
 %section.content.container-fluid
   .row
     .col-md-12
-      .box
-        .box-header.with-border
-          %h3.box-title
-            Message
-        .box-body.table-responsive
-          %table.table.table-bordered
-            %thead
-              %tr
-                %th
-                  uuid
-                %th
-                  body
-                %th
-                  emails
-                %th
-                  created_at
-                %th
-                  operation
-            %tbody
-              - @messages.each do |message|
-                %tr
-                  %td
-                    = message.uuid
-                  %td
-                    = message.body
-                  %td
-                    = message.emails
-                  %td
-                    = message.created_at
-                  %td
-                    = link_to message_path(uuid: message.uuid), class: "btn btn-default btn-xs" do
-                      %i.fa.fa-file-o
-                      show
-                    = link_to edit_message_path(uuid: message.uuid), class: "btn btn-default btn-xs" do
-                      %i.fa.fa-edit
-                      edit
-                    = link_to message_path(uuid: message.uuid), method: :delete, class: "btn btn-default btn-xs", data: {confirm: "Are you sure?"} do
-                      %i.fa.fa-trash-o
-                      delete
+      = render partial: "box_messages", locals: {messages: @messages}

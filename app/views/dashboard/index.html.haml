@@ -1,4 +1,9 @@
 %section.content-header
   %h1 Dashboard#index
 %section.content.container-fluid
-  %p Find me in app/views/dashboard/index.html.haml
+  .row
+    .col-md-12
+      = render partial: "messages/box_messages", locals: {messages: @messages}
+  .row
+    .col-md-12
+      = render partial: "messages/acceptances/box_acceptances", locals: {acceptances: @acceptances}

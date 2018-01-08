@@ -16,9 +16,13 @@
 //= require bootstrap/dist/js/bootstrap.min
 //= require admin-lte/dist/js/adminlte.min
 //= require admin-lte/plugins/iCheck/icheck.min
+//= require clipboard/dist/clipboard.min
 //= require_tree .
 
-var ready = function () {
+var adminlte_ready = function () {
   return $(window).trigger('resize');
 };
-document.addEventListener('turbolinks:load', ready);
+document.addEventListener('turbolinks:load', adminlte_ready);
+$(document).on('turbolinks:load', function() {
+  let clipboard = new Clipboard('.clipboard-btn');
+});

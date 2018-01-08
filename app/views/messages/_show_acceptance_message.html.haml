@@ -3,7 +3,10 @@
   = Message.human_attribute_name(:body)
 %dd
   %strong<>
-    = message.body
+    %span#clipboard_message
+      = message.body
+    %button.btn.btn-default.btn-xs.clipboard-btn{data: { clipboard: { target: "#clipboard_message"}} }
+      %i.fa.fa-clipboard
 %dt<>
   -# i18n-tasks-use t('activerecord.attributes.message.uuid')
   = Message.human_attribute_name(:uuid)

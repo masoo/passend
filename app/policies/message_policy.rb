@@ -27,6 +27,10 @@ class MessagePolicy < ApplicationPolicy
     record.user_id == user.user.id
   end
 
+  def own?
+    record.user_id == user.user.id
+  end
+
   class Scope < Scope
     def resolve
       scope.where(user_id: user.user.id)

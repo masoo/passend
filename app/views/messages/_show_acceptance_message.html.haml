@@ -1,0 +1,20 @@
+%dt<>
+  -# i18n-tasks-use t('activerecord.attributes.message.body')
+  = Message.human_attribute_name(:body)
+%dd
+  %strong<>
+    = message.body
+%dt<>
+  -# i18n-tasks-use t('activerecord.attributes.message.uuid')
+  = Message.human_attribute_name(:uuid)
+%dd
+  = message.uuid
+%dt<>
+  = t("passend.resources.from")
+%dd
+  = message.user.email
+%dt<>
+  -# i18n-tasks-use t('activerecord.attributes.message.created_at')
+  = Message.human_attribute_name(:created_at)
+%dd
+  = message.created_at

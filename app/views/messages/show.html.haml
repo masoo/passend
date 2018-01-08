@@ -11,36 +11,7 @@
         = Message.model_name.human
     .box-body
       %dl.dl-horizontal
-        %dt<>
-          -# i18n-tasks-use t('activerecord.attributes.message.id')
-          = Message.human_attribute_name(:id)
-        %dd
-          = @message.id
-        %dt<>
-          -# i18n-tasks-use t('activerecord.attributes.message.uuid')
-          = Message.human_attribute_name(:uuid)
-        %dd
-          = @message.uuid
-        %dt<>
-          -# i18n-tasks-use t('activerecord.attributes.message.body')
-          = Message.human_attribute_name(:body)
-        %dd
-          = @message.body
-        %dt<>
-          -# i18n-tasks-use t('activerecord.attributes.message.emails')
-          = Message.human_attribute_name(:emails)
-        %dd
-          = @message.emails
-        %dt user_id
-        %dd
-          = @message.user_id
-        %dt<>
-          -# i18n-tasks-use t('activerecord.attributes.message.created_at')
-          = Message.human_attribute_name(:created_at)
-        %dd
-          = @message.created_at
-        %dt<>
-          -# i18n-tasks-use t('activerecord.attributes.message.updated_at')
-          = Message.human_attribute_name(:updated_at)
-        %dd
-          = @message.updated_at
+        - if policy(@message).own?
+          = render partial: "show_own_message", locals: {message: @message}
+        - else
+          = render partial: "show_acceptance_message", locals: {message: @message}

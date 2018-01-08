@@ -27,6 +27,7 @@ en:
     resources:
       delete: Delete
       edit: Edit
+      from: From
       index: Index
       new: New
       show: Show

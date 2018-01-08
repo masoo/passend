@@ -27,6 +27,7 @@ ja:
     resources:
       delete: 削除
       edit: 編集
+      from: 送信元
       index: 一覧
       new: 新規作成
       show: 詳細

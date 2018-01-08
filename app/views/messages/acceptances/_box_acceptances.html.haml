@@ -1,21 +1,22 @@
 .box
   .box-header.with-border
     %h3.box-title
-      Acceptance
+      -# i18n-tasks-use t('activerecord.models.acceptance')
+      = Acceptance.model_name.human
   .box-body.table-responsive
     %table.table.table-bordered
       %thead
         %tr
           %th
-            uuid
+            -# i18n-tasks-use t('activerecord.attributes.message.uuid')
+            = Message.human_attribute_name(:uuid)
           %th
-            body
+            = t("passend.resources.from")
           %th
-            emails
+            -# i18n-tasks-use t('activerecord.attributes.message.created_at')
+            = Message.human_attribute_name(:created_at)
           %th
-            created_at
-          %th
-            operation
+            = t("passend.actions.operation")
       %tbody
         - acceptances.each do |acceptance|
           - message = acceptance.message
@@ -23,12 +24,10 @@
             %td
               = message.uuid
             %td
-              = message.body
-            %td
-              = message.emails
+              = message.user.email
             %td
               = message.created_at
             %td
               = link_to message_path(uuid: message.uuid), class: "btn btn-default btn-xs" do
                 %i.fa.fa-file-o
-                show
+                  = t("passend.resources.show")

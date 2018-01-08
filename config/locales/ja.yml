@@ -23,6 +23,9 @@ ja:
       please_sign_up_and_login: サインアップ&ログインをしてください
       send_magic_login: マジックログイン
       sign_up_and_login: サインアップ&ログイン
+  dashboard:
+    index:
+      dashboard: ダッシュボード
   passend:
     actions:
       delete_are_you_sure: 削除してよろしいですか？

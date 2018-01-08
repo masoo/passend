@@ -24,6 +24,9 @@ en:
       please_sign_up_and_login: Please Sign Up and Login
       send_magic_login: Send Magic Login
       sign_up_and_login: Sign Up and Login
+  dashboard:
+    index:
+      dashboard: Dashboard
   passend:
     actions:
       delete_are_you_sure: Are you sure?

@@ -8,8 +8,9 @@ Password transmission system.
 ```shell
 $ cd passend
 $ bundle install
-$ rails db:migrate
-$ rails s
+$ bundle exec yarn install
+$ bundle exec rails db:migrate
+$ bundle exec rails s
 ```
 
 ## License

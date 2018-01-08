@@ -14,6 +14,15 @@ ja:
       authentication: 認証
       message: メッセージ
       user: ユーザー
+  authentications:
+    create:
+      instructions_have_benn_sent_to_your_email: 指示がEメールに送られました
+      sign_up_and_login: サインアップ&ログイン
+    new:
+      email: Eメール
+      please_sign_up_and_login: サインアップ&ログインをしてください
+      send_magic_login: マジックログイン
+      sign_up_and_login: サインアップ&ログイン
   passend:
     actions:
       delete_are_you_sure: 削除してよろしいですか？

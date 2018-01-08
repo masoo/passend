@@ -14,6 +14,16 @@ en:
       authentication: Authentication
       message: Message
       user: User
+  authentications:
+    create:
+      instructions_have_benn_sent_to_your_email: Instructions have been sent to your
+        email.
+      sign_up_and_login: Sign Up and Login
+    new:
+      email: Email
+      please_sign_up_and_login: Please Sign Up and Login
+      send_magic_login: Send Magic Login
+      sign_up_and_login: Sign Up and Login
   passend:
     actions:
       delete_are_you_sure: Are you sure?

@@ -15,14 +15,14 @@
         = link_to "Passend", root_path
       .register-box-body
         %p.login-box-msg
-          Sign Up and Login
+          = t(".sign_up_and_login")
         = form_for @authentication do |f|
           %div{class: "form-group has-feedback#{has_warning_flash_notice}"}
-            = f.email_field :email, class: "form-control", placeholder: "Email"
+            = f.email_field :email, class: "form-control", placeholder: t(".email")
             %span.glyphicon.glyphicon-envelope.form-control-feedback
             - if flash[:notice].present?
               %span.help-block
-                Please Sign Up and Login.
+                = t(".please_sign_up_and_login")
           .row
             .col-xs-6.col-xs-offset-3
-              = f.submit "Send Magic Login", class: "btn btn-primary btn-block btn-flat"
+              = f.submit t(".send_magic_login"), class: "btn btn-primary btn-block btn-flat"

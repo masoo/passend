@@ -1,0 +1,33 @@
+.box
+  .box-header.with-border
+    %h3.box-title
+      -# i18n-tasks-use t('activerecord.models.acceptance')
+      = Acceptance.model_name.human
+  .box-body.table-responsive
+    %table.table.table-bordered
+      %thead
+        %tr
+          %th
+            -# i18n-tasks-use t('activerecord.attributes.message.uuid')
+            = Message.human_attribute_name(:uuid)
+          %th
+            = t("passend.resources.from")
+          %th
+            -# i18n-tasks-use t('activerecord.attributes.message.created_at')
+            = Message.human_attribute_name(:created_at)
+          %th
+            = t("passend.actions.operation")
+      %tbody
+        - acceptances.each do |acceptance|
+          - message = acceptance.message
+          %tr
+            %td
+              = message.uuid
+            %td
+              = message.user.email
+            %td
+              = message.created_at
+            %td
+              = link_to message_path(uuid: message.uuid), class: "btn btn-default btn-xs" do
+                %i.fa.fa-file-o
+                  = t("passend.resources.show")

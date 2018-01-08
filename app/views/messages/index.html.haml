@@ -1,0 +1,9 @@
+%section.content-header
+  %h1<>
+    -# i18n-tasks-use t('activerecord.models.message')
+    = Message.model_name.human
+    = t("passend.resources.index")
+%section.content.container-fluid
+  .row
+    .col-md-12
+      = render partial: "box_messages", locals: {messages: @messages}

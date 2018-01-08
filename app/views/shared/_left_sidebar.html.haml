@@ -1,0 +1,23 @@
+-# Left side column. contains the logo and sidebar
+%aside.main-sidebar
+  -# sidebar: style can be found in sidebar.less
+  %section.sidebar
+    -# Sidebar Menu
+    %ul.sidebar-menu{data: {widget: "tree"}}
+      %li.header
+        = t("passend.contents.main_navigation")
+      %li
+        =link_to root_path do
+          %i.fa.fa-laptop
+          %span<>
+            = t("passend.contents.dashboard")
+      %li
+        =link_to messages_path do
+          %i.fa.fa-paper-plane-o
+          %span<>
+            = t("passend.contents.messages")
+      %li
+        =link_to messages_acceptances_path do
+          %i.fa.fa-inbox
+          %span<>
+            = t("passend.contents.accept_message")

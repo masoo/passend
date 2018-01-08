@@ -1,0 +1,55 @@
+!!! 5
+%html
+  %head
+    %meta{charset: "utf8"}
+    %meta{http: {equiv: "X-UA-Compatible"}}
+    %meta{content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no", name: "viewport"}
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %title
+      Passend
+  %body.hold-transition.skin-blue.sidebar-mini
+    .wrapper
+      -# Main Header
+      %header.main-header
+        -# Logo
+        %a.logo{href: "#"}
+          %span.logo-mini
+            %b<>
+              P
+          %span.logo-lg
+            %b<>
+              P
+            assend
+        -# Header Navbar
+        %nav.navbar.navbar-static-top{role: "navigation"}
+          - # Sidebar toggle button
+          %a.sidebar-toggle{href: "#", data: {toggle: "push-menu"}}
+            %span.sr-only
+              Toggle navigation
+          .navbar-custom-menu
+            %ul.nav.navbar-nav
+              %li.dropdown.user.user-menu
+                %a.dropdown-toggle{data: {toggle: "dropdown"}, aria: {expanded: "true"}}
+                  %i.fa.fa-user
+                  %span.hiden-xs
+                    = current_user.email
+                %ul.dropdown-menu
+                  %li.user-header
+                    %i.fa.fa-user-o.passend-profile-fa.img-circle
+                    %p
+                      = current_user.email
+                  %li.user-footer
+                    .pull-right
+                      = link_to "Log out", authentications_magic_session_path(id: current_user.id), method: :delete, class: "btn btn-default btn-flat"
+      = render partial: "shared/left_sidebar"
+      .content-wrapper
+        = yield
+      %footer.main-footer
+        .pull-right.hidden-xs
+          passend
+        %strong<>
+          Copyright &copy; 2017 
+          %a{href: "https://github.com/masoo/passend"}
+            FUNABARA Masao

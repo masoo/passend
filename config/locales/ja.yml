@@ -1,0 +1,45 @@
+---
+ja:
+  activerecord:
+    attributes:
+      message:
+        body: パスフレーズ
+        created_at: 作成日時
+        emails: Eメール
+        id: ID
+        updated_at: 更新日時
+        uuid: UUID
+    models:
+      acceptance: 受け入れメッセージ
+      authentication: 認証
+      message: メッセージ
+      user: ユーザー
+  authentications:
+    create:
+      instructions_have_benn_sent_to_your_email: 指示がEメールに送られました
+      sign_up_and_login: サインアップ&ログイン
+    new:
+      email: Eメール
+      please_sign_up_and_login: サインアップ&ログインをしてください
+      send_magic_login: マジックログイン
+      sign_up_and_login: サインアップ&ログイン
+  dashboard:
+    index:
+      dashboard: ダッシュボード
+  passend:
+    actions:
+      delete_are_you_sure: 削除してよろしいですか？
+      operation: 操作
+      submit: 送信
+    contents:
+      accept_message: 受け入れメッセージ
+      dashboard: ダッシュボード
+      main_navigation: メインナビゲーション
+      messages: メッセージ
+    resources:
+      delete: 削除
+      edit: 編集
+      from: 送信元
+      index: 一覧
+      new: 新規作成
+      show: 詳細

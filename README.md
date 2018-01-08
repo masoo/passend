@@ -1,18 +1,19 @@
-passend
+Passend
 =======
 
-Password received System.
+Password transmission system.
 
-### Getting Started
+## Getting Started
 
 ```shell
-cd passend
-bundle install
-rake db:migrate
+$ cd passend
+$ bundle install
+$ rails db:migrate
+$ rails s
 ```
 
-### License
+## License
 Code is under [The MIT license](LICENSE)
 
-### Donations
+## Donations
 [Donate](https://gum.co/mXcR)

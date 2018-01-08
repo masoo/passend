@@ -1,81 +1,39 @@
-class MessagePolicy
-  attr_reader :user, :message
-
-  def initialize(user, message)
-    @user = user
-    @message = message
-  end
-
+class MessagePolicy < ApplicationPolicy
   def index?
-    user_signed_in?
+    true
   end
 
   def show?
-    message_owner? or message_recipient?
-  end
-
-  def new?
-    user_signed_in?
-  end
-
-  def edit?
-    message_owner?
+    record.user_id == user.user.id or record.acceptances.exists?(email: user.email)
   end
 
   def create?
-    user_signed_in?
+    record.user_id == user.user.id
+  end
+
+  def new?
+    true
   end
 
   def update?
-    message_owner?
+    record.user_id == user.user.id
+  end
+
+  def edit?
+    record.user_id == user.user.id
   end
 
   def destroy?
-    message_owner?
+    record.user_id == user.user.id
   end
 
-  ## user authority
-  def user_signed_in?
-    @user.present?
+  def own?
+    record.user_id == user.user.id
   end
 
-  ## message authority
-  def message_present?
-    @message.present?
-  end
-
-  ## authority
-  def message_owner?
-    user_signed_in? and message_present? and (@message.user.id == @user.id)
-  end
-
-  def message_recipient?
-    user_signed_in? and message_present? and @message.destinations.any? {|destination| destination.email == @user.email }
-  end
-
-end
-
-class MessagePolicy
-  class Scope
-    attr_reader :user, :scope
-
-    def initialize(user, scope)
-      @user = user
-      @scope = scope
-    end
-
+  class Scope < Scope
     def resolve
-      if user_signed_in?
-        @user.messages.all
-      else
-        nil
-      end
-    end
-
-    private
-
-    def user_signed_in?
-      @user.present?
+      scope.where(user_id: user.user.id)
     end
   end
 end

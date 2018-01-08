@@ -1,23 +1,46 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
+---
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      message:
+        body: Passphrase
+        created_at: Created_at
+        emails: Emails
+        id: ID
+        updated_at: Updated_at
+        uuid: UUID
+    models:
+      acceptance: Acceptance
+      authentication: Authentication
+      message: Message
+      user: User
+  authentications:
+    create:
+      instructions_have_benn_sent_to_your_email: Instructions have been sent to your
+        email.
+      sign_up_and_login: Sign Up and Login
+    new:
+      email: Email
+      please_sign_up_and_login: Please Sign Up and Login
+      send_magic_login: Send Magic Login
+      sign_up_and_login: Sign Up and Login
+  dashboard:
+    index:
+      dashboard: Dashboard
+  passend:
+    actions:
+      delete_are_you_sure: Are you sure?
+      operation: operation
+      submit: submit
+    contents:
+      accept_message: Accept Message
+      dashboard: Dashboard
+      main_navigation: Main Navigation
+      messages: Messages
+    resources:
+      delete: Delete
+      edit: Edit
+      from: From
+      index: Index
+      new: New
+      show: Show

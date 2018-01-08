@@ -1,0 +1,10 @@
+%section.content-header
+  %h1<>
+    = t(".dashboard")
+%section.content.container-fluid
+  .row
+    .col-md-12
+      = render partial: "messages/box_messages", locals: {messages: @messages}
+  .row
+    .col-md-12
+      = render partial: "messages/acceptances/box_acceptances", locals: {acceptances: @acceptances}

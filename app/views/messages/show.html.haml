@@ -1,0 +1,17 @@
+%section.content-header
+  %h1<>
+    -# i18n-tasks-use t('activerecord.models.message')
+    = Message.model_name.human
+    = t("passend.resources.show")
+%section.content.container-fluid
+  .box
+    .box-header.with-border
+      %h3.box-title
+        -# i18n-tasks-use t('activerecord.models.message')
+        = Message.model_name.human
+    .box-body
+      %dl.dl-horizontal
+        - if policy(@message).own?
+          = render partial: "show_own_message", locals: {message: @message}
+        - else
+          = render partial: "show_acceptance_message", locals: {message: @message}

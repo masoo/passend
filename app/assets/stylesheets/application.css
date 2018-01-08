@@ -11,11 +11,11 @@
  * It is generally better to create a new file per style scope.
  *
  *= require bootstrap/dist/css/bootstrap.min
- *= require font-awesome/css/font-awesome.min
+ *= require font-awesome
  *= require ionicons/dist/css/ionicons.min
  *= require admin-lte/dist/css/AdminLTE.min
  *= require admin-lte/dist/css/skins/skin-blue.min
- *= require admin-lte/plugins/iCheck/all.css
+ *= require admin-lte/plugins/iCheck/square/_all
  *= require_tree .
  *= require_self
  */
